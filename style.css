@@ -1,4 +1,4 @@
-/* Estilos Base Simplificados */
+
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +13,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Navegación */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -132,7 +132,6 @@ body {
   cursor: pointer;
 }
 
-/* BANNER HERO CON FOTO DE FONDO ELEGANTE */
 .hero {
   position: relative;
   min-height: 80vh;
@@ -141,11 +140,11 @@ body {
   justify-content: center;
   text-align: center;
   padding: 9rem 5% 4rem;
-  /* Imagen de alta calidad de gimnasio oscuro/elegante */
+  
   background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1920') center/cover no-repeat;
 }
 
-/* Overlay para oscurecer la foto y mejorar legibilidad del texto */
+
 .hero-overlay {
   position: absolute;
   top: 0;
@@ -205,7 +204,7 @@ body {
   background: rgba(255, 255, 255, 0.15);
 }
 
-/* Secciones Generales */
+
 .section {
   padding: 4rem 5%;
 }
@@ -288,7 +287,6 @@ body {
   background: #ff3e3e;
 }
 
-/* Planes de Membresías */
 .plans-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -342,7 +340,7 @@ body {
   font-size: 0.8rem;
 }
 
-/* Footer */
+
 footer {
   text-align: center;
   padding: 1.5rem;
