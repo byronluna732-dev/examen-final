@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIT GT | Gimnasio & Store</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Barra de Navegación -->
+  <header class="navbar">
+    <a href="#" class="logo">FIT<span>GT</span></a>
+    
+    <nav class="nav-links">
+      <a href="#tienda">Tienda</a>
+      <a href="#planes">Membresías</a>
+    </nav>
+
+    <!-- Botón del Carrito -->
+    <button class="cart-btn" onclick="toggleCart()">
+      🛒 Carrito <span id="cart-count">0</span>
+    </button>
+  </header>
+
+  <!-- Ventana Flotante del Carrito -->
+  <div id="cart-dropdown" class="cart-dropdown hidden">
+    <h3>Tu Carrito</h3>
+    <div id="cart-items">
+      <p class="empty-cart">No has agregado nada aún.</p>
+    </div>
+    <div class="cart-total">
+      <span>Total:</span>
+      <span id="cart-total-price">Q0.00</span>
+    </div>
+    <button class="btn-checkout" onclick="alert('Redirigiendo a pago...')">Finalizar Compra</button>
+  </div>
+
+  <!-- Banner Principal con Fondo de Gimnasio Elegante -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>ENTRENA. EQUIPATE. SUPÉRALE.</h1>
+      <p>Gimnasio completo y tienda oficial de suplementos y accesorios en Guatemala.</p>
+      <div class="hero-btns">
+        <a href="#tienda" class="btn">Ir a la Tienda 🛍️</a>
+        <a href="#planes" class="btn btn-outline">Ver Membresías</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIENDA ONLINE (Con imágenes de productos) -->
+  <section id="tienda" class="section">
+    <h2 class="title">TIENDA & SUPLEMENTOS</h2>
+    <p class="subtitle">Selecciona tus productos e infórmate antes de comprar.</p>
+
+    <div class="store-grid">
+      
+      <!-- Producto 1 -->
+      <div class="product-card">
+        <div class="img-container">
+          <img src="proteina.jpg" alt="Proteína Whey" onerror="this.src='https://via.placeholder.com/200x200?text=Proteina+Whey'">
+        </div>
+        <h3>Proteína Whey 5 Lbs</h3>
+        <span class="product-price">Q450.00</span>
+        <button class="btn-add" onclick="addToCart('Proteína Whey 5 Lbs', 450)">Agregar al Carrito</button>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="product-card">
+        <div class="img-container">
+          <img src="preentreno.jpg" alt="Pre-Entreno Nitro" onerror="this.src='https://via.placeholder.com/200x200?text=Pre-Entreno'">
+        </div>
+        <h3>Pre-Entreno Nitro</h3>
+        <span class="product-price">Q280.00</span>
+        <button class="btn-add" onclick="addToCart('Pre-Entreno Nitro', 280)">Agregar al Carrito</button>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="product-card">
+        <div class="img-container">
+          <img src="cinturon.jpg" alt="Cinturón de Pesas" onerror="this.src='https://via.placeholder.com/200x200?text=Cinturon+Pesas'">
+        </div>
+        <h3>Cinturón de Pesas</h3>
+        <span class="product-price">Q175.00</span>
+        <button class="btn-add" onclick="addToCart('Cinturón de Pesas', 175)">Agregar al Carrito</button>
+      </div>
+
+      <!-- Producto 4 -->
+      <div class="product-card">
+        <div class="img-container">
+          <img src="shaker.jpg" alt="Shaker FIT GT" onerror="this.src='https://via.placeholder.com/200x200?text=Shaker+FIT'">
+        </div>
+        <h3>Shaker FIT GT</h3>
+        <span class="product-price">Q65.00</span>
+        <button class="btn-add" onclick="addToCart('Shaker FIT GT', 65)">Agregar al Carrito</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Planes de Membresía -->
+  <section id="planes" class="section dark-bg">
+    <h2 class="title">MEMBRESÍAS</h2>
+    <div class="plans-grid">
+      <div class="plan-card">
+        <h3>Plan Básico</h3>
+        <div class="price">Q150 <span>/mes</span></div>
+        <p>Acceso ilimitado al gimnasio y área de pesas libre.</p>
+        <a href="https://wa.me/" target="_blank" class="btn btn-small">Consultar</a>
+      </div>
+
+      <div class="plan-card featured">
+        <span class="badge">Popular</span>
+        <h3>Plan Black</h3>
+        <div class="price">Q215 <span>/mes</span></div>
+        <p>Acceso completo, área de sauna y beneficios exclusivos en tienda.</p>
+        <a href="https://wa.me/" target="_blank" class="btn btn-small">Consultar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>FIT GT Gym & Store &copy; 2026</p>
+  </footer>
+
+  <!-- Lógica simple del Carrito -->
+  <script>
+    let cart = [];
+
+    function toggleCart() {
+      document.getElementById('cart-dropdown').classList.toggle('hidden');
+    }
+
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      document.getElementById('cart-count').innerText = cart.length;
+      const cartItems = document.getElementById('cart-items');
+      const totalPrice = document.getElementById('cart-total-price');
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<p class="empty-cart">No has agregado nada aún.</p>';
+        totalPrice.innerText = 'Q0.00';
+        return;
+      }
+
+      let html = '';
+      let total = 0;
+
+      cart.forEach((item) => {
+        total += item.price;
+        html += `<div class="cart-item">
+          <span>${item.name}</span>
+          <span>Q${item.price}.00</span>
+        </div>`;
+      });
+
+      cartItems.innerHTML = html;
+      totalPrice.innerText = `Q${total}.00`;
+    }
+  </script>
+
+</body>
+</html>
