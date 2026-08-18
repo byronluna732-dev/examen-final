@@ -11,7 +11,7 @@
 </head>
 <body>
 
-  <!-- Barra de Navegación -->
+
   <header class="navbar">
     <a href="#" class="logo">FIT<span>GT</span></a>
     
@@ -20,13 +20,11 @@
       <a href="#planes">Membresías</a>
     </nav>
 
-    <!-- Botón del Carrito -->
     <button class="cart-btn" onclick="toggleCart()">
       🛒 Carrito <span id="cart-count">0</span>
     </button>
   </header>
 
-  <!-- Ventana Flotante del Carrito -->
   <div id="cart-dropdown" class="cart-dropdown hidden">
     <h3>Tu Carrito</h3>
     <div id="cart-items">
@@ -79,7 +77,6 @@
         <button class="btn-add" onclick="addToCart('Pre-Entreno Nitro', 280)">Agregar al Carrito</button>
       </div>
 
-      <!-- Producto 3 -->
       <div class="product-card">
         <div class="img-container">
           <img src="cinturon.jpg" alt="Cinturón de Pesas" onerror="this.src='https://via.placeholder.com/200x200?text=Cinturon+Pesas'">
@@ -89,7 +86,7 @@
         <button class="btn-add" onclick="addToCart('Cinturón de Pesas', 175)">Agregar al Carrito</button>
       </div>
 
-      <!-- Producto 4 -->
+    
       <div class="product-card">
         <div class="img-container">
           <img src="shaker.jpg" alt="Shaker FIT GT" onerror="this.src='https://via.placeholder.com/200x200?text=Shaker+FIT'">
@@ -123,12 +120,10 @@
     </div>
   </section>
 
-  <!-- Pie de página -->
   <footer>
     <p>FIT GT Gym & Store &copy; 2026</p>
   </footer>
-
-  <!-- Lógica simple del Carrito -->
+    
   <script>
     let cart = [];
 
